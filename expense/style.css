@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+/* ...existing code... */
+:root {
+  --bg: #f7f7f7;
+  --container-bg: #fff;
+  --primary: #9c88ff;
+  --income: #2ecc71;
+  --expense: #c0392b;
+  --text: #333;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --transition: background 0.4s, color 0.4s;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: var(--container-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 30px 30px 10px 30px;
+  animation: fadeIn 0.7s;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 25px;
+  right: 40px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 22px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  z-index: 10;
+}
+
+.theme-toggle span {
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.theme-toggle:hover {
+  background: #7f6cff;
+  transform: scale(1.12);
+}
+
+.btn {
+  background: linear-gradient(90deg, #9c88ff 60%, #6dd5ed 100%);
+  transition: background 0.3s, transform 0.2s;
+  border-radius: 8px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #6dd5ed 60%, #9c88ff 100%);
+  transform: scale(1.04);
+}
+
+.list li {
+  animation: slideIn 0.5s;
+  border-radius: 8px;
+  /* ...existing code... */
+}
+
+.list li span {
+  display: inline-block;
+}
+.list li span:nth-child(2) {
+  font-size: 0.85em;
+  color: #888;
+  margin-left: 0.5em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-40px);}
+  to { opacity: 1; transform: translateX(0);}
+}
+
+/* Dark mode styles */
+body.dark {
+  --bg: #18191a;
+  --container-bg: #23272f;
+  --primary: #6dd5ed;
+  --income: #27ae60;
+  --expense: #e74c3c;
+  --text: #f7f7f7;
+}
+
+/* Improve text color for containers in dark mode */
+body.dark .container,
+body.dark .history-container,
+body.dark .inc-card {
+  color: #0c0b0b;
+}
+
+body.dark .inc-card h4,
+body.dark .inc-card .money {
+  color: #0d0d0d;
+}
+
+body.dark #form label,
+body.dark #form input,
+body.dark #form {
+  color: #070707;
+}
+
+input[type='text'],
+input[type='number'] {
+  background: #f3f3f3;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark input[type='text'],
+body.dark input[type='number'] {
+  background: #23272f;
+  color: #f7f7f7;
+  border: 1px solid #444;
+}
+
+/* Center headings */
+h2, h4, h3 {
+  text-align: center;
+  width: 100%;
+}
+
+/* Style the form itself */
+#form {
+  background: #f9f9fb;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(156, 136, 255, 0.09);
+  padding: 24px 20px 18px 20px;
+  margin-top: 18px;
+  width: 100%;
+  max-width: 370px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  animation: fadeIn 0.7s;
+}
+
+/* Style each form-control for spacing */
+#form .form-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+/* Style the input row for side-by-side fields */
+.input-row {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.input-row .form-control {
+  flex: 1 1 0;
+}
+
+/* Make input boxes fill the input-row container */
+#form > .input-row {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#form > .input-row .form-control {
+  min-width: 0;
+  width: 100%;
+}
+
+#form > .input-row input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Input styles */
+#form input[type="text"],
+#form input[type="number"] {
+  padding: 10px 12px;
+  border-radius: 7px;
+  border: 1.5px solid #e0e0e0;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #f3f3f3;
+}
+
+#form input[type="text"]:focus,
+#form input[type="number"]:focus {
+  border: 1.5px solid var(--primary);
+  box-shadow: 0 0 0 2px #e0e6ff;
+}
+
+/* Button styles */
+#form .btn {
+  margin-top: 8px;
+  padding: 12px 0;
+  font-size: 1.08rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #9c88ff 60%, #6dd5ed 100%);
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(156, 136, 255, 0.09);
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+#form .btn:hover {
+  background: linear-gradient(90deg, #6dd5ed 60%, #9c88ff 100%);
+  transform: scale(1.04);
+  box-shadow: 0 4px 16px rgba(156, 136, 255, 0.13);
+}
+
+/* Income-Expense Container */
+.inc-exp-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  max-width: 370px;
+  margin: 20px 0;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+.inc-card {
+  flex: 1 1 0;
+  background: #f3f3f3;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(156,136,255,0.07);
+  padding: 18px 0 14px 0;
+  text-align: center;
+  transition: box-shadow 0.3s, transform 0.2s;
+  border: 2px solid transparent;
+}
+
+.inc-card.left {
+  border-left: 4px solid var(--income);
+}
+
+.inc-card.right {
+  border-right: 4px solid var(--expense);
+}
+
+.inc-card:hover {
+  box-shadow: 0 4px 16px rgba(156,136,255,0.13);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.inc-card h4 {
+  margin: 0 0 8px 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.inc-card .money {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.inc-card .plus {
+  color: var(--income);
+}
+
+.inc-card .minus {
+  color: var(--expense);
+}
+
+/* History container styles */
+.history-container {
+  background: #f9f9fb;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(156, 136, 255, 0.09);
+  padding: 18px 18px 8px 18px;
+  margin: 0 0 18px 0;
+  width: 100%;
+  max-width: 370px;
+  animation: fadeIn 0.7s;
+  min-height: 60px;
+  box-sizing: border-box;
+}
+
+body.dark .history-container {
+  background: #23272f;
+  color: #f7f7f7;
+}
+
+body.dark .history-container .list li,
+body.dark .history-container .list,
+body.dark .history-container h3,
+body.dark .history-container * {
+  color: #f7f7f7 !important;
+}
+
+body.dark .history-container {
+  background: #23272f;
+}
+
+/* Make delete button in history brighter in dark mode */
+body.dark .history-container .delete-btn {
+  color: #fff !important;
+  background: #e74c3c !important;
+  border: none;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.18);
+  transition: background 0.2s, color 0.2s;
+}
+
+body.dark .history-container .delete-btn:hover {
+  background: #ff7675 !important;
+  color: #23272f !important;
+}
+
+/* Section Headings */
+.section-heading {
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  margin: 24px 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(90deg, #9c88ff 40%, #6dd5ed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.balance-heading {
+  font-size: 1.35rem;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.history-heading,
+.add-heading {
+  font-size: 1.18rem;
+  margin-top: 18px;
+  margin-bottom: 8px;
+}
+
+/* Category styles */
+.category-group {
+  background: #eaf6fb;
+  border: 2px solid #b2e0f7;
+  border-radius: 10px;
+  margin-bottom: 18px;
+  padding: 8px 0 4px 0;
+  box-shadow: 0 1px 6px rgba(109,213,237,0.07);
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+}
+
+body.dark .category-group {
+  background: #232c36;
+  border-color: #6dd5ed;
+}
+
+.category-heading {
+  font-weight: bold;
+  font-size: 1.08rem;
+  margin: 0 0 6px 0;
+  color: #6dd5ed;
+  background: none;
+  border: none;
+  text-align: right;
+  list-style: none;
+  padding: 0 12px;
+}
+
+/* Footer styles */
+.footer {
+  width: 100vw;
+  padding: 18px 0 10px 0;
+  background: #f3f3f3;
+  text-align: center;
+  font-size: 1.08rem;
+  color: #444;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.footer a {
+  color: #0a66c2;
+  text-decoration: none;
+  margin-left: 6px;
+  vertical-align: middle;
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer .linkedin-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  fill: #0a66c2;
+  display: inline-block;
+  vertical-align: middle;
+}
+body.dark .footer {
+  background: #23272f;
+  color: #f7f7f7;
+}
+body.dark .footer a, body.dark .footer .linkedin-icon {
+  color: #6dd5ed;
+  fill: #6dd5ed;
+}
+
+/* Responsive for small screens */
+@media (max-width: 500px) {
+  #form, .container, .history-container {
+    max-width: 85vw;
+    width: 85vw;
+    padding: 10px;
+  }
+  .inc-exp-container {
+    flex-direction: column;
+    gap: 12px;
+    max-width: 85vw;
+    width: 85vw;
+  }
+  .input-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .section-heading {
+    font-size: 1.05rem;
+    gap: 6px;
+  }
+  .balance-heading {
+    font-size: 1.12rem;
+  }
+  .category-group {
+    padding: 6px 0 2px 0;
+  }
+}
+
+/* Responsive for large screens */
+@media (min-width: 900px) {
+  .container, #form, .history-container {
+    max-width: 520px;
+    padding: 40px 40px 20px 40px;
+  }
+  .inc-exp-container {
+    max-width: 520px;
+    gap: 36px;
+  }
+  .section-heading {
+    font-size: 1.5rem;
+  }
+  .balance-heading {
+    font-size: 1.7rem;
+  }
+  .history-heading, .add-heading {
+    font-size: 1.3rem;
+  }
+  .category-group {
+    font-size: 1.08rem;
+    padding: 16px 0 8px 0;
+  }
+}

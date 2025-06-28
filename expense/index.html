@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="budget.png" />
+    <title>Expense Tracker</title>
+  </head>
+  <body>
+    <!-- Theme toggle button -->
+    <button id="theme-toggle" class="theme-toggle"><span>🌙</span></button>
+    <!-- App title -->
+    <h2>Expense Tracker</h2>
+    <div class="container">
+      <!-- Balance section -->
+      <h4 class="section-heading balance-heading">💰 Your Balance</h4>
+      <h1 id="balance">$0.00</h1>
+      <!-- Income and Expense summary cards -->
+      <div class="inc-exp-container">
+        <div class="inc-card left">
+          <h4>Income</h4>
+          <p id="money-plus" class="money plus">+$0.00</p>
+        </div>
+        <div class="inc-card right">
+          <h4>Expense</h4>
+          <p id="money-minus" class="money minus">-$0.00</p>
+        </div>
+      </div>
+      <!-- History section -->
+      <h3 class="section-heading history-heading">📜 History</h3>
+      <div class="history-container">
+        <ul id="list" class="list"></ul>
+      </div>
+      <!-- Add new transaction section -->
+      <h3 class="section-heading add-heading">➕ Add new transaction</h3>
+      <form id="form">
+        <!-- Transaction text input -->
+        <div class="form-control">
+          <label for="text">Text</label>
+          <input type="text" id="text" placeholder="Enter text..." />
+        </div>
+        <!-- Transaction category input -->
+        <div class="form-control">
+          <label for="category">Category</label>
+          <input type="text" id="category" placeholder="Enter category..." />
+        </div>
+        <!-- Income and Expense input fields side by side -->
+        <div class="input-row">
+          <div class="form-control">
+            <label for="income">Income</label>
+            <input type="number" id="income" placeholder="Enter income..." />
+          </div>
+          <div class="form-control">
+            <label for="expense">Expense</label>
+            <input type="number" id="expense" placeholder="Enter expense..." />
+          </div>
+        </div>
+        <!-- Submit button -->
+        <button class="btn">Add transaction</button>
+      </form>
+    </div>
+    <div class="footer">
+       Connect on
+      <a href="https://www.linkedin.com/in/-gowtham-j" target="_blank" rel="noopener">
+        <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path d="M100.28 448H7.4V148.9h92.88zm-46.44-340.7C24.09 107.3 0 83.2 0 53.6A53.6 53.6 0 0 1 53.6 0a53.6 53.6 0 0 1 53.6 53.6c0 29.6-24.09 53.7-53.36 53.7zM447.8 448h-92.4V302.4c0-34.7-12.4-58.4-43.3-58.4-23.6 0-37.6 15.9-43.7 31.3-2.3 5.6-2.8 13.4-2.8 21.2V448h-92.5s1.2-242.4 0-267.1h92.4v37.9c12.3-19 34.3-46.1 83.5-46.1 60.9 0 106.7 39.8 106.7 125.4V448z"/>
+        </svg>
+        LinkedIn
+      </a>
+    </div>
+    <!-- Main JavaScript file -->
+    <script src="script.js"></script>
+  </body>
+</html>
